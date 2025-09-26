@@ -2,94 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Jogo da Memória Infantil - Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    /* Cores principais do jogo */
+    --game-primary: 210 100% 85%;        /* Azul pastel */
+    --game-primary-dark: 210 70% 70%;    /* Azul um pouco mais escuro */
+    --game-secondary: 160 100% 85%;      /* Verde menta */
+    --game-accent: 45 100% 85%;          /* Amarelo suave */
+    --game-pink: 340 100% 90%;           /* Rosa claro */
+    --game-purple: 280 100% 88%;         /* Roxo pastel */
+    
+    /* Cores de fundo */
+    --background: 210 100% 98%;          /* Azul muito claro */
+    --game-bg-gradient: linear-gradient(135deg, hsl(210 100% 98%), hsl(160 100% 98%), hsl(45 100% 98%));
+    
+    /* Cores de texto */
+    --foreground: 220 30% 25%;           /* Cinza azulado escuro */
+    --game-text-light: 210 40% 98%;      /* Branco suave */
+    --game-text-dark: 220 30% 25%;       /* Texto escuro */
+    
+    /* Cores das cartas */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 220 30% 25%;
+    --card-back: 210 100% 88%;           /* Azul para verso das cartas */
+    --card-shadow: 210 100% 75%;         /* Sombra azul */
+    
+    /* Cores de estado */
+    --success: 120 60% 70%;              /* Verde para acertos */
+    --warning: 45 100% 70%;              /* Amarelo para avisos */
+    --danger: 0 70% 80%;                 /* Vermelho suave */
+    
+    /* Elementos UI */
+    --popover: 210 100% 98%;
+    --popover-foreground: 220 30% 25%;
+    --primary: 210 100% 85%;
+    --primary-foreground: 220 30% 25%;
+    --secondary: 160 100% 85%;
+    --secondary-foreground: 220 30% 25%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 45 100% 85%;
+    --accent-foreground: 220 30% 25%;
+    --destructive: 0 70% 80%;
+    --destructive-foreground: 220 30% 25%;
+    --border: 210 40% 90%;
+    --input: 210 40% 95%;
+    --ring: 210 100% 80%;
+    
+    /* Raios e espaçamentos */
+    --radius: 1rem;                      /* Bordas bem arredondadas */
+    --radius-large: 1.5rem;
+    --radius-small: 0.75rem;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Gradientes especiais */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--game-primary)), hsl(var(--game-secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 100% 98%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(120 60% 80%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--game-accent)), hsl(var(--game-pink)));
+    
+    /* Sombras especiais */
+    --shadow-card: 0 4px 15px -3px hsl(var(--card-shadow) / 0.2);
+    --shadow-card-hover: 0 8px 25px -5px hsl(var(--card-shadow) / 0.3);
+    --shadow-button: 0 4px 15px -3px hsl(var(--game-primary) / 0.4);
+    --shadow-success: 0 0 30px hsl(var(--success) / 0.6);
+    
+    /* Animações */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-flip: transform 0.6s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -100,6 +90,77 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: var(--game-bg-gradient);
+    min-height: 100vh;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+  }
+
+  /* Animações personalizadas para o jogo */
+  @keyframes flip {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(90deg); }
+    100% { transform: rotateY(0deg); }
+  }
+
+  @keyframes pulse-success {
+    0%, 100% { transform: scale(1); box-shadow: var(--shadow-card); }
+    50% { transform: scale(1.05); box-shadow: var(--shadow-success); }
+  }
+
+  @keyframes bounce-in {
+    0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+    50% { transform: scale(1.1) rotate(5deg); }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  @keyframes confetti {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Classes utilitárias para o jogo */
+  .card-flip {
+    animation: flip 0.6s ease-in-out;
+  }
+
+  .card-match {
+    animation: pulse-success 0.8s ease-in-out;
+  }
+
+  .bounce-in {
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .confetti-piece {
+    animation: confetti 3s linear infinite;
+  }
+
+  .rainbow-text {
+    background: linear-gradient(45deg, hsl(var(--game-primary)), hsl(var(--game-secondary)), hsl(var(--game-accent)), hsl(var(--game-pink)), hsl(var(--game-purple)));
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 2s ease-in-out infinite;
+  }
+
+  /* Utilitários para flip 3D */
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }
