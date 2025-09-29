@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,6 +19,13 @@
     /* Cores de fundo */
     --background: 210 100% 98%;          /* Azul muito claro */
     --game-bg-gradient: linear-gradient(135deg, hsl(210 100% 98%), hsl(160 100% 98%), hsl(45 100% 98%));
+    --game-bg-gradient: linear-gradient(
+      130deg,
+      hsl(210 100% 92%),
+      hsl(160 95% 82%),
+      hsl(45 100% 80%),
+      hsl(320 95% 85%)
+    );
     
     /* Cores de texto */
     --foreground: 220 30% 25%;           /* Cinza azulado escuro */
@@ -42,30 +51,7 @@
     --secondary: 160 100% 85%;
     --secondary-foreground: 220 30% 25%;
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 45 100% 85%;
-    --accent-foreground: 220 30% 25%;
-    --destructive: 0 70% 80%;
-    --destructive-foreground: 220 30% 25%;
-    --border: 210 40% 90%;
-    --input: 210 40% 95%;
-    --ring: 210 100% 80%;
-    
-    /* Raios e espaçamentos */
-    --radius: 1rem;                      /* Bordas bem arredondadas */
-    --radius-large: 1.5rem;
-    --radius-small: 0.75rem;
-
-    /* Gradientes especiais */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--game-primary)), hsl(var(--game-secondary)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 100% 98%));
-    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(120 60% 80%));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--game-accent)), hsl(var(--game-pink)));
-    
-    /* Sombras especiais */
-    --shadow-card: 0 4px 15px -3px hsl(var(--card-shadow) / 0.2);
-    --shadow-card-hover: 0 8px 25px -5px hsl(var(--card-shadow) / 0.3);
-    --shadow-button: 0 4px 15px -3px hsl(var(--game-primary) / 0.4);
+@@ -69,53 +77,61 @@
     --shadow-success: 0 0 30px hsl(var(--success) / 0.6);
     
     /* Animações */
@@ -94,6 +80,16 @@
     background: var(--game-bg-gradient);
     min-height: 100vh;
     font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Baloo 2', 'Fredoka', 'Comic Sans MS', cursive, sans-serif;
+    background-color: hsl(210 100% 95%);
+    background-image:
+      radial-gradient(circle at 12% 18%, hsl(var(--game-accent) / 0.45) 0%, transparent 58%),
+      radial-gradient(circle at 85% 22%, hsl(var(--game-pink) / 0.45) 0%, transparent 55%),
+      radial-gradient(circle at 18% 78%, hsl(var(--game-secondary) / 0.45) 0%, transparent 56%),
+      radial-gradient(circle at 78% 78%, hsl(var(--game-purple) / 0.45) 0%, transparent 55%),
+      var(--game-bg-gradient);
+    background-attachment: fixed;
+    background-size: cover;
   }
 
   /* Animações personalizadas para o jogo */
@@ -118,49 +114,3 @@
     0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
   }
-
-  @keyframes rainbow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Classes utilitárias para o jogo */
-  .card-flip {
-    animation: flip 0.6s ease-in-out;
-  }
-
-  .card-match {
-    animation: pulse-success 0.8s ease-in-out;
-  }
-
-  .bounce-in {
-    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .confetti-piece {
-    animation: confetti 3s linear infinite;
-  }
-
-  .rainbow-text {
-    background: linear-gradient(45deg, hsl(var(--game-primary)), hsl(var(--game-secondary)), hsl(var(--game-accent)), hsl(var(--game-pink)), hsl(var(--game-purple)));
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: rainbow 2s ease-in-out infinite;
-  }
-
-  /* Utilitários para flip 3D */
-  .preserve-3d {
-    transform-style: preserve-3d;
-  }
-
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
-
-  .rotate-y-180 {
-    transform: rotateY(180deg);
-  }
-}
